@@ -1,4 +1,4 @@
-# spark-shiro-authentication
+# sparkjava-shiro-authentication
 SparkJava and Shiro-based authentication.
 
 
