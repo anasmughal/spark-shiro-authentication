@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
-	
+
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.example</groupId>
 	<artifactId>spark-shiro-authentication</artifactId>
@@ -22,7 +22,7 @@
 
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>com.sparkjava</groupId>
 			<artifactId>spark-core</artifactId>
@@ -77,11 +77,9 @@
 			<version>2.8.0</version>
 		</dependency>
 
-		
-
 
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
-		
+
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -93,17 +91,13 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.8.0-beta2</version>
 		</dependency>
-		 
 
-		
-		
+
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>1.2.3</version>
 		</dependency>
- 		
-
 
 
 
@@ -119,7 +113,7 @@
 			<groupId>io.ebean</groupId>
 			<artifactId>querybean-generator</artifactId>
 			<version>11.34.1</version>
-			<!-- <scope>provided</scope>  -->
+			<!-- <scope>provided</scope> -->
 		</dependency>
 
 		<!-- Optional but Ebean will read these annotations like @size to determine 
@@ -132,71 +126,60 @@
 		</dependency>
 
 
-		
+
 		<dependency>
-		  <groupId>org.apache.commons</groupId>
-		  <artifactId>commons-configuration2</artifactId>
-		  <version>2.4</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-configuration2</artifactId>
+			<version>2.4</version>
 		</dependency>
-		
-		
+
+
 		<!-- beanutils is needed for commons-configuration -->
 		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
 		<dependency>
-		    <groupId>commons-beanutils</groupId>
-		    <artifactId>commons-beanutils</artifactId>
-		    <version>1.9.3</version>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.3</version>
 		</dependency>
 
-		
+
 		<!-- https://mvnrepository.com/artifact/org.hashids/hashids -->
 		<dependency>
-		    <groupId>org.hashids</groupId>
-		    <artifactId>hashids</artifactId>
-		    <version>1.0.3</version>
+			<groupId>org.hashids</groupId>
+			<artifactId>hashids</artifactId>
+			<version>1.0.3</version>
 		</dependency>
 
 
 		<dependency>
-		  <groupId>org.apache.shiro</groupId>
-		  <artifactId>shiro-core</artifactId>
-		  <version>1.4.1-SNAPSHOT</version>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>1.4.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-		  <groupId>org.apache.shiro</groupId>
-		  <artifactId>shiro-web</artifactId>
-		  <version>1.4.1-SNAPSHOT</version>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>1.4.1-SNAPSHOT</version>
 		</dependency>
 
-		
+
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
-		    <groupId>org.json</groupId>
-		    <artifactId>json</artifactId>
-		    <version>20090211</version>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
 		</dependency>
 
 
-<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
-<dependency>
-    <groupId>org.apache.httpcomponents</groupId>
-    <artifactId>httpclient</artifactId>
-    <version>4.5.6</version>
-</dependency>
-
-
-<!-- not needed
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
 		<dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-        </dependency>
--->
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.6</version>
+		</dependency>
 
 
 	</dependencies>
-
 
 
 
@@ -205,23 +188,24 @@
 		<plugins>
 
 			<plugin>
-			
-			  <groupId>org.eclipse.jetty</groupId>
-			  <artifactId>jetty-maven-plugin</artifactId>
-			  <version>9.4.15.v20190215</version>
-			    
-			    <configuration>
-			        
-			        <scanIntervalSeconds>4</scanIntervalSeconds>
-			        
-			        <!-- following is needed to resolve the error: java.io.IOException: Resource [classpath:shiro.ini] could not be found. -->
-			        <webAppConfig>
-            			<extraClasspath>src/main/webapp/WEB-INF/</extraClasspath>
-          			</webAppConfig>
-			    
-			    </configuration>
-			    
-        
+
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.15.v20190215</version>
+
+				<configuration>
+
+					<scanIntervalSeconds>4</scanIntervalSeconds>
+
+					<!-- following is needed to resolve the error: java.io.IOException: 
+						Resource [classpath:shiro.ini] could not be found. -->
+					<webAppConfig>
+						<extraClasspath>src/main/webapp/WEB-INF/</extraClasspath>
+					</webAppConfig>
+
+				</configuration>
+
+
 			</plugin>
 
 
@@ -234,60 +218,25 @@
 					<target>${java.version}</target>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
-					<proc>none</proc> <!-- disable annotation processing to avoid duplicating maven-processor-plugin output -->
+					<proc>none</proc> <!-- disable annotation processing to avoid duplicating maven-processor-plugin 
+						output -->
 				</configuration>
 			</plugin>
 
- 
- 
-			<!-- <plugin> <groupId>io.repaint.maven</groupId> <artifactId>tiles-maven-plugin</artifactId> 
-				<version>2.12</version> <extensions>true</extensions> <configuration> <tiles> 
-				<tile>org.avaje.tile:java-compile:1.1</tile> <tile>io.ebean.tile:enhancement:7.4</tile> 
-				</tiles> </configuration> </plugin> -->
 
 
-      <plugin>
-        <groupId>io.repaint.maven</groupId>
-        <artifactId>tiles-maven-plugin</artifactId>
-        <version>2.13</version>
-        <extensions>true</extensions>
-        <configuration>
-          <tiles>
-            <!--  <tile>org.avaje.tile:java-compile:1.1</tile>  -->
-            <tile>io.ebean.tile:enhancement:7.4</tile>
-          </tiles>
-        </configuration>
-      </plugin>
-
-
-<!-- 
-		<plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <executions>
-                <execution>
-                    <id>process-ebean-enhancement</id>
-                    <phase>process-classes</phase>
-                    <configuration>
-                        <tasks>
-                            <property name="compile_classpath" refid="maven.compile.classpath" />
-                            <echo
-                                message="Ebean enhancing test classes debug level " />
-                            <echo message="Classpath: ${compile_classpath}" />
-                            <taskdef name="ebeanEnhance" classname="com.avaje.ebean.enhance.ant.AntEnhanceTask"
-                                classpath="${compile_classpath}" />
-                            <ebeanEnhance classSource="${project.build.outputDirectory}"
-                                packages="com.mycompany.**" transformArgs="debug=1" />
-                        </tasks>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                    <goals>
-                        <goal>run</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>  
- -->
+			<plugin>
+				<groupId>io.repaint.maven</groupId>
+				<artifactId>tiles-maven-plugin</artifactId>
+				<version>2.13</version>
+				<extensions>true</extensions>
+				<configuration>
+					<tiles>
+						<!-- <tile>org.avaje.tile:java-compile:1.1</tile> -->
+						<tile>io.ebean.tile:enhancement:7.4</tile>
+					</tiles>
+				</configuration>
+			</plugin>
 
 
 			<plugin>
@@ -313,34 +262,17 @@
 
 
 			<plugin>
-		      <groupId>com.github.ferstl</groupId>
-		      <artifactId>depgraph-maven-plugin</artifactId>
-		      <version>3.3.0</version>
-		      <configuration>
-		      </configuration>
-		    </plugin>
+				<groupId>com.github.ferstl</groupId>
+				<artifactId>depgraph-maven-plugin</artifactId>
+				<version>3.3.0</version>
+				<configuration>
+				</configuration>
+			</plugin>
 
 		</plugins>
 
 
-
 	</build>
-
-
-
-	<!-- Generate source documentation -->
-	<!-- https://maven.apache.org/jxr/maven-jxr-plugin/usage.html -->
-	<reporting>
-	    <plugins>
-	      <plugin>
-	        <groupId>org.apache.maven.plugins</groupId>
-	        <artifactId>maven-jxr-plugin</artifactId>
-	        <version>3.0.0</version>
-	      </plugin>
-	    </plugins>
-	</reporting>
-
-
 
 
 </project>
