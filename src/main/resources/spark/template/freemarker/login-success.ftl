@@ -16,12 +16,19 @@
 	
 			
 			
-			<h1>Login Successful</h1>
+			<h1>Login Status</h1>
 			
 			
 			
 			<p>You are logged in as: </p>
-							<#if loggedInUser??>${loggedInUser}</#if>
+							
+				<#if loggedInUser??>${loggedInUser}
+				
+				<#else>
+				
+					--- NOT logged in ---
+				
+				</#if>
 			
 	
 	
@@ -29,6 +36,15 @@
 	
 	</div>  <!-- containter-fluid -->
 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<i>Please reload repeated to see logged in and NOT logged in behavior.</i>
 
 
 </body>

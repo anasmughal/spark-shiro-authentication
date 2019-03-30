@@ -5,6 +5,7 @@ package com.example.webapp;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
+import static spark.Spark.redirect;
 import static spark.Spark.threadPool;
 
 import org.slf4j.Logger;
@@ -75,6 +76,8 @@ public class Main implements SparkApplication {
 
 		get(Path.LOGOUT, SecurityController.logout);
 
+
+		redirect.get("/", Path.LOGIN);
 
 
     }
