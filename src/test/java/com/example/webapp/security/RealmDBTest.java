@@ -102,7 +102,7 @@ public class RealmDBTest {
 
 
 
-	// @Test
+	@Test
 	public void testDoGetAuthenticationInfo_NotValidCredentials() {
 		logger.info("==== testDoGetAuthenticationInfo ====");
 
@@ -123,7 +123,7 @@ public class RealmDBTest {
 		// String username and password. Acquire in
 		// system-specific manner (HTTP request, GUI, etc)
 		String username = "johndoe";
-		String password = "pass123";
+		String password = "pass777";
 		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 		token.setRememberMe(true);
 
@@ -131,15 +131,15 @@ public class RealmDBTest {
 		try {
 			currentUser.login(token);
 		} catch (UnknownAccountException uae) {
-			uae.printStackTrace();
+			// uae.printStackTrace();
 		} catch (IncorrectCredentialsException ice) {
-			ice.printStackTrace();
+			// ice.printStackTrace();
 		} catch (LockedAccountException lae) {
-			lae.printStackTrace();
+			// lae.printStackTrace();
 		} catch (ExcessiveAttemptsException eae) {
-			eae.printStackTrace();
+			// eae.printStackTrace();
 		} catch (org.apache.shiro.authc.AuthenticationException ae) {
-			ae.printStackTrace();
+			// ae.printStackTrace();
 		}
 
 		logger.info("is authenticated: " + currentUser.isAuthenticated());
