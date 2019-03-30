@@ -1,0 +1,346 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>spark-shiro-authentication</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spark.version>2.5.5</spark.version>
+		<junit.version>4.12</junit.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<java.version>1.8</java.version>
+		<ebean-maven-plugin.args>debug=0</ebean-maven-plugin.args>
+	</properties>
+
+
+
+	<dependencies>
+	
+		<dependency>
+			<groupId>com.sparkjava</groupId>
+			<artifactId>spark-core</artifactId>
+			<version>${spark.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.j2html</groupId>
+			<artifactId>j2html</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.26-incubating</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sparkjava</groupId>
+			<artifactId>spark-template-freemarker</artifactId>
+			<version>2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.sql2o</groupId>
+			<artifactId>sql2o</artifactId>
+			<version>1.5.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+
+		<!-- JSON support -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+
+		
+
+
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.8.0-beta2</version>
+		</dependency>
+		 
+
+		
+		
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+ 		
+
+
+
+
+		<!-- support for query beans -->
+		<dependency>
+			<groupId>io.ebean</groupId>
+			<artifactId>ebean-querybean</artifactId>
+			<version>11.34.1</version>
+		</dependency>
+
+		<!-- java annotation processor to generate query beans -->
+		<dependency>
+			<groupId>io.ebean</groupId>
+			<artifactId>querybean-generator</artifactId>
+			<version>11.34.1</version>
+			<!-- <scope>provided</scope>  -->
+		</dependency>
+
+		<!-- Optional but Ebean will read these annotations like @size to determine 
+			column lengths etc -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+			<!--<version>1.0.0.GA</version> -->
+		</dependency>
+
+
+		
+		<dependency>
+		  <groupId>org.apache.commons</groupId>
+		  <artifactId>commons-configuration2</artifactId>
+		  <version>2.4</version>
+		</dependency>
+		
+		
+		<!-- beanutils is needed for commons-configuration -->
+		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+		<dependency>
+		    <groupId>commons-beanutils</groupId>
+		    <artifactId>commons-beanutils</artifactId>
+		    <version>1.9.3</version>
+		</dependency>
+
+		
+		<!-- https://mvnrepository.com/artifact/org.hashids/hashids -->
+		<dependency>
+		    <groupId>org.hashids</groupId>
+		    <artifactId>hashids</artifactId>
+		    <version>1.0.3</version>
+		</dependency>
+
+
+		<dependency>
+		  <groupId>org.apache.shiro</groupId>
+		  <artifactId>shiro-core</artifactId>
+		  <version>1.4.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.apache.shiro</groupId>
+		  <artifactId>shiro-web</artifactId>
+		  <version>1.4.1-SNAPSHOT</version>
+		</dependency>
+
+		
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20090211</version>
+		</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.5.6</version>
+</dependency>
+
+
+<!-- not needed
+		<dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+-->
+
+
+	</dependencies>
+
+
+
+
+
+	<build>
+		<plugins>
+
+			<plugin>
+			
+			  <groupId>org.eclipse.jetty</groupId>
+			  <artifactId>jetty-maven-plugin</artifactId>
+			  <version>9.4.15.v20190215</version>
+			    
+			    <configuration>
+			        
+			        <scanIntervalSeconds>4</scanIntervalSeconds>
+			        
+			        <!-- following is needed to resolve the error: java.io.IOException: Resource [classpath:shiro.ini] could not be found. -->
+			        <webAppConfig>
+            			<extraClasspath>src/main/webapp/WEB-INF/</extraClasspath>
+          			</webAppConfig>
+			    
+			    </configuration>
+			    
+        
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+					<proc>none</proc> <!-- disable annotation processing to avoid duplicating maven-processor-plugin output -->
+				</configuration>
+			</plugin>
+
+ 
+ 
+			<!-- <plugin> <groupId>io.repaint.maven</groupId> <artifactId>tiles-maven-plugin</artifactId> 
+				<version>2.12</version> <extensions>true</extensions> <configuration> <tiles> 
+				<tile>org.avaje.tile:java-compile:1.1</tile> <tile>io.ebean.tile:enhancement:7.4</tile> 
+				</tiles> </configuration> </plugin> -->
+
+
+      <plugin>
+        <groupId>io.repaint.maven</groupId>
+        <artifactId>tiles-maven-plugin</artifactId>
+        <version>2.13</version>
+        <extensions>true</extensions>
+        <configuration>
+          <tiles>
+            <!--  <tile>org.avaje.tile:java-compile:1.1</tile>  -->
+            <tile>io.ebean.tile:enhancement:7.4</tile>
+          </tiles>
+        </configuration>
+      </plugin>
+
+
+<!-- 
+		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+                <execution>
+                    <id>process-ebean-enhancement</id>
+                    <phase>process-classes</phase>
+                    <configuration>
+                        <tasks>
+                            <property name="compile_classpath" refid="maven.compile.classpath" />
+                            <echo
+                                message="Ebean enhancing test classes debug level " />
+                            <echo message="Classpath: ${compile_classpath}" />
+                            <taskdef name="ebeanEnhance" classname="com.avaje.ebean.enhance.ant.AntEnhanceTask"
+                                classpath="${compile_classpath}" />
+                            <ebeanEnhance classSource="${project.build.outputDirectory}"
+                                packages="com.mycompany.**" transformArgs="debug=1" />
+                        </tasks>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>  
+ -->
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<!--<configuration> -->
+				<!--<argLine> -->
+				<!--&#45;&#45;add-modules java.xml.bind -->
+				<!--&#45;&#45;illegal-access=deny -->
+				<!--</argLine> -->
+				<!--</configuration> -->
+				<executions>
+					<execution>
+						<id>default-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+			<plugin>
+		      <groupId>com.github.ferstl</groupId>
+		      <artifactId>depgraph-maven-plugin</artifactId>
+		      <version>3.3.0</version>
+		      <configuration>
+		      </configuration>
+		    </plugin>
+
+		</plugins>
+
+
+
+	</build>
+
+
+
+	<!-- Generate source documentation -->
+	<!-- https://maven.apache.org/jxr/maven-jxr-plugin/usage.html -->
+	<reporting>
+	    <plugins>
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-jxr-plugin</artifactId>
+	        <version>3.0.0</version>
+	      </plugin>
+	    </plugins>
+	</reporting>
+
+
+
+
+</project>

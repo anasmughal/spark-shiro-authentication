@@ -1,0 +1,59 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+	<filter>
+		<filter-name>SparkFilter</filter-name>
+		<filter-class>spark.servlet.SparkFilter</filter-class>
+		<init-param>
+			<param-name>applicationClass</param-name>
+			<param-value>com.example.webapp.Main</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>SparkFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<!-- >>> Shiro -->
+	<!-- The following should resolve the issue with Shiro subject accross threads. -->
+	<!-- https://stackoverflow.com/questions/9829649/shiro-in-a-multi-threaded-environment -->
+	
+	
+	<context-param>
+	    <param-name>shiroConfigLocations</param-name>
+	    <param-value>classpath:shiro.ini</param-value>
+	</context-param>
+	
+	
+	<!--  Shiro Environment Listener -->
+	<listener>
+	    <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+	</listener>
+	
+	<!--  Shiro Filter Configuration -->
+	<filter>
+	    <filter-name>ShiroFilter</filter-name>
+	    <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+	    <init-param>
+        	<param-name>staticSecurityManagerEnabled</param-name>
+        	<param-value>true</param-value>
+    	</init-param>
+	</filter>
+	<filter-mapping>
+	    <filter-name>ShiroFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	    <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+	
+	<!-- <<< Shiro -->
+	
+	
+		
+</web-app>
